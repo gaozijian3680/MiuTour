@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F47A4FF6-9A10-4FB0-B89E-6EAE39B6A177</string>
+	<key>IDESourceControlProjectName</key>
+	<string>project</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>04A4D2E699AD266EF9F9F0FCBC1C0306F250A7BD</key>
+		<string>https://github.com/gaozijian3680/MiuTour.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>MiuTour.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>04A4D2E699AD266EF9F9F0FCBC1C0306F250A7BD</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/gaozijian3680/MiuTour.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>04A4D2E699AD266EF9F9F0FCBC1C0306F250A7BD</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>04A4D2E699AD266EF9F9F0FCBC1C0306F250A7BD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MiuTour</string>
+		</dict>
+	</array>
+</dict>
+</plist>
