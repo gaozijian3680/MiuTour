@@ -35,6 +35,9 @@
 
 - (void)httpLoginWithParameters:(NSDictionary *)parameters succeed:(SucceedBlock)succeed failed:(FailedBlock)failed
 {
+    
+    
+    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager POST:[NSString stringWithFormat:base_url,@"/user/login"] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         succeed(responseObject);
@@ -53,6 +56,12 @@
         failed(error);
     }];
 
+    // 设置请求超时时间 :
+    manager.requestSerializer.timeoutInterval = 10;
+    
+    
+    
+    
 }
 
 

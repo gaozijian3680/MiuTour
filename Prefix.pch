@@ -25,9 +25,18 @@
 正式环境 http://uapi.miutour.com
 */
 
-//#define base_url http://uapi.miutour.com
 
+// DEBUG :TRUE is 测试环境
+#ifdef DEBUG
+#pragma mark - 重写NSLog
+#define ZJLog(...) NSLog(__VA_ARGS__)
 #define base_url @"http://testuapi.miutour.com%@"
+#else
+#define ZJLog(...)
+#define base_url @"http://uapi.miutour.com"
+#endif
+
+
 
 
 #endif

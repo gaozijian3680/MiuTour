@@ -43,7 +43,8 @@
 
 @property (nonatomic ,weak) UIScrollView *scrollView;
 
-
+// 反地理编码 对象
+@property (nonatomic, strong) CLGeocoder *geocoder;
 
 @property (nonatomic,retain) NSMutableArray *arrayDatas;
 
@@ -479,7 +480,7 @@
      */
     
     SaoyiSaoViewController *saosaoVC = [[SaoyiSaoViewController alloc]init];
-    [saosaoVC setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+    [saosaoVC setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
     [self presentViewController:saosaoVC animated:YES completion:nil];
 }
 
@@ -509,7 +510,45 @@
 {
     CLLocation *location = locations.firstObject;
     
+    _geocoder = [[CLGeocoder alloc]init];
+    
+    [_geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
+        
+        CLPlacemark *placemark = placemarks.firstObject;
+        /*
+         *name; // eg. Apple Inc.
+         *thoroughfare; // street address, eg. 1 Infinite Loop
+         *subThoroughfare; // eg. 1
+         *locality; // city, eg. Cupertino
+         *subLocality; // neighborhood, common name, eg. Mission District
+         *administrativeArea; // state, eg. CA
+         *subAdministrativeArea; // county, eg. Santa Clara
+         *postalCode; // zip code, eg. 95014
+         *ISOcountryCode; // eg. US
+         *country; // eg. United States
+         *inlandWater; // eg. Lake Tahoe
+         *ocean; // eg. Pacific Ocean
+         *areasOfInterest; // eg. Golden Gate Park
+         */
+        
+        NSLog(@"country: %@",placemark.country);
+        NSLog(@"ISOcountryCode: %@",placemark.ISOcountryCode);
+        NSLog(@"locality: %@",placemark.locality);
+        NSLog(@"name: %@",placemark.name);
+        NSLog(@"thoroughfare: %@",placemark.thoroughfare);
+        NSLog(@"subThoroughfare: %@",placemark.subThoroughfare);
+        NSLog(@"subLocality: %@",placemark.subLocality);
+        NSLog(@"administrativeArea: %@",placemark.administrativeArea);
+        NSLog(@"subAdministrativeArea: %@",placemark.subAdministrativeArea);
+        NSLog(@"postalCode: %@",placemark.postalCode);
+        NSLog(@"inlandWater: %@",placemark.inlandWater);
+        NSLog(@"ocean: %@",placemark.ocean);
+        NSLog(@"areasOfInterest: %@",placemark.areasOfInterest);
+
+    }];
+    
     NSLog(@"<用户当前位置>纬度%f, 经度%f",location.coordinate.latitude,location.coordinate.longitude);
+    
     
     [manager stopUpdatingLocation ];
     
