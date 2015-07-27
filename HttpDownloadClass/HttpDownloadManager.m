@@ -9,6 +9,10 @@
 #import "HttpDownloadManager.h"
 #import "AFNetworking.h"
 
+
+// 数据请求超时时间
+#define TimeoutInterval 20
+
 @interface HttpDownloadManager ()
 {
 
@@ -39,7 +43,13 @@
     
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    // 设置请求超时时间 :
+    manager.requestSerializer.timeoutInterval = TimeoutInterval;
+    
     [manager POST:[NSString stringWithFormat:base_url,@"/user/login"] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        
         succeed(responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failed(error);
@@ -49,15 +59,27 @@
 
 - (void)httpDownloadCountrysListWithURL:(NSString *)URL withParameters:(NSDictionary *)parameters succeed:(SucceedBlock)succeed failed:(FailedBlock)failed
 {
+    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    // 设置请求超时时间 :
+    manager.requestSerializer.timeoutInterval = TimeoutInterval;
+    
     [manager POST:URL parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         succeed(responseObject);
+        
+        // 添加 (URL 和parameter 的字典) 到任务列表中, 并添加 <判断URL 和parameter 是否存在在任务列表中>
+        NSDictionary *URLData = @{@"URL":URL,@"parameters":parameters};
+        // 添加 到任务列表中
+        [_arrayTasks addObject:URLData];
+        
+        // 添加到数据大字典中
+        [_dictDatas setObject:@{@"URLData":URLData,@"ResponseObject":responseObject} forKey:@""];
+        
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failed(error);
     }];
-
-    // 设置请求超时时间 :
-    manager.requestSerializer.timeoutInterval = 10;
     
     
     

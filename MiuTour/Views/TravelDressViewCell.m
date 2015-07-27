@@ -31,6 +31,8 @@
     scrollView.pagingEnabled = YES;
     scrollView.showsHorizontalScrollIndicator = NO;
     scrollView.backgroundColor = [UIColor lightGrayColor];
+    // 取消边缘滑动
+    scrollView.bounces = NO;
     [self addSubview:scrollView];
     
     UIImageView *leftImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 198)];

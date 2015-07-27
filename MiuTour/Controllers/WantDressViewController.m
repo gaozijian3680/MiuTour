@@ -57,7 +57,7 @@
     signature = [[NSString string] md5:signature];
     NSLog(@"%@",signature);
     
-    [[HttpDownloadManager manager]httpDownloadCountrysListWithURL:[NSString stringWithFormat:base_url ,@"/service/city"] withParameters:@{@"signature":signature,} succeed:^(id response) {
+    [[HttpDownloadManager manager]httpDownloadCountrysListWithURL:[NSString stringWithFormat:base_url ,@"/service/city"] withParameters:@{@"signature":signature} succeed:^(id response) {
         
         NSLog(@"response - %@",response);
         

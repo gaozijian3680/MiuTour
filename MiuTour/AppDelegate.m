@@ -21,6 +21,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    [self.window setBackgroundColor:[UIColor whiteColor]];
 
     self.window.rootViewController = [[MainViewController alloc]init];
     

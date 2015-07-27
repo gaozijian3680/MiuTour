@@ -39,7 +39,7 @@
 
 @property (nonatomic ,weak) HomeHeaderView *headerView;
 
-@property (nonatomic ,weak) UIImageView *bottomView;
+@property (nonatomic ,weak) UIButton *bottomBtn;
 
 @property (nonatomic ,weak) UIScrollView *scrollView;
 
@@ -71,10 +71,11 @@
     
     [self createScrollView];
     
-    [self createBottomView];
-    
     [self locationDressAtNow];
     
+    // 创建底部 滑动弹窗
+    [self createBottomView];
+
     
 }
 
@@ -214,14 +215,9 @@
 
 - (void)createBottomView
 {
-    UIImageView *bottomView =[[UIImageView alloc]initWithFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height - 50,ScreenWidth , 50)];
-//    bottomView.image = [UIImage imageNamed:@"bottomBg"];
-    bottomView.backgroundColor = [UIColor clearColor];
-    [self.view addSubview:bottomView];
     
     UIButton *bottomBtn = [UIButton buttonWithType:UIButtonTypeSystem];
-    bottomBtn.frame = CGRectMake(0, 0, 200, 30);
-    bottomBtn.center = CGPointMake(ScreenWidth * 0.5, 20);
+    bottomBtn.frame = CGRectMake((ScreenWidth - 200) * 0.5, ScreenHeight - 45, 200, 30);
     bottomBtn.backgroundColor = [UIColor colorWithRed:255/255.0 green:90/255.0 blue:95/255.0 alpha:1];
     [bottomBtn setTitle:@"我要拼车" forState:0];
     bottomBtn.layer.borderWidth = 1;
@@ -229,12 +225,21 @@
     bottomBtn.layer.borderColor = [UIColor colorWithRed:223/255.0 green:223/255.0 blue:223/255.0 alpha:0.8].CGColor;
     bottomBtn.layer.cornerRadius = 5;
     bottomBtn.titleLabel.font = [UIFont systemFontOfSize:13];
-    [bottomView addSubview:bottomBtn];
-    _bottomView = bottomView;
-    _bottomView.hidden = YES;
+    [bottomBtn addTarget:self action:@selector(bottomBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    _bottomBtn = bottomBtn;
+    [self.view addSubview:bottomBtn];
+    
+    // 首次进入 会将其隐藏
+    bottomBtn.hidden = YES;
 
 }
 
+// 底部拼车按钮的点击事件
+- (void)bottomBtnClicked:(UIButton *)sender
+{
+    NSLog(@"woyao拼车");
+
+}
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -391,6 +396,9 @@
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
 {
+    // 设置出现或消失动画时长
+    static float Duration = 0.5;
+    
     // 去除scrollView 的速度效果
     if (scrollView == _scrollView) return;
     
@@ -398,19 +406,19 @@
     //    向上滑
     if (velocity.y >= 0.1){
         
-        [UIView animateWithDuration:0.5 animations:^{
-            CGRect frame = _bottomView.frame;
+        [UIView animateWithDuration:Duration animations:^{
+            CGRect frame = _bottomBtn.frame;
             frame.origin.y = [UIScreen mainScreen].bounds.size.height;
-            _bottomView.frame = frame;
+            _bottomBtn.frame = frame;
         }];
     }
     //    向下滑
     else {
         
-        [UIView animateWithDuration:0.5 animations:^{
-            CGRect frame = _bottomView.frame;
-            frame.origin.y = [UIScreen mainScreen].bounds.size.height - 50;
-            _bottomView.frame = frame;
+        [UIView animateWithDuration:Duration animations:^{
+            CGRect frame = _bottomBtn.frame;
+            frame.origin.y = [UIScreen mainScreen].bounds.size.height - 45;
+            _bottomBtn.frame = frame;
             
         }];
         
@@ -423,8 +431,8 @@
 {
     if (index == toIndex) return;
     
-    if (toIndex == 1) _bottomView.hidden = NO;
-    else _bottomView.hidden = YES;
+    if (toIndex == 1) _bottomBtn.hidden = NO;
+    else _bottomBtn.hidden = YES;
     
     [_scrollView setContentOffset:CGPointMake(toIndex * ScreenWidth, 0) animated:YES];
     

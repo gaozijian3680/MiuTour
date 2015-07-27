@@ -125,5 +125,84 @@
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HttpDownloadClass/HttpDownloadManager.m"
+            timestampString = "459659816.990475"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "-httpDownloadCountrysListWithURL:withParameters:succeed:failed:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__85-[HttpDownloadManager httpDownloadCountrysListWithURL:withParameters:succeed:failed:]_block_invoke"
+                  moduleName = "MiuTour"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/miutour/Desktop/Miutour/MiuTour/HttpDownloadClass/HttpDownloadManager.m"
+                  timestampString = "459676299.536373"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "80"
+                  endingLineNumber = "80"
+                  offsetFromSymbolStart = "446">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__85-[HttpDownloadManager httpDownloadCountrysListWithURL:withParameters:succeed:failed:]_block_invoke"
+                  moduleName = "MiuTour"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/miutour/Desktop/Miutour/MiuTour/HttpDownloadClass/HttpDownloadManager.m"
+                  timestampString = "459676299.536622"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "80"
+                  endingLineNumber = "80"
+                  offsetFromSymbolStart = "470">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__85-[HttpDownloadManager httpDownloadCountrysListWithURL:withParameters:succeed:failed:]_block_invoke38"
+                  moduleName = "MiuTour"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/miutour/Desktop/Miutour/MiuTour/HttpDownloadClass/HttpDownloadManager.m"
+                  timestampString = "459676299.536804"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "80"
+                  endingLineNumber = "80"
+                  offsetFromSymbolStart = "72">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HttpDownloadClass/HttpDownloadManager.m"
+            timestampString = "459659837.528088"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "-httpDownloadCountrysListWithURL:withParameters:succeed:failed:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
